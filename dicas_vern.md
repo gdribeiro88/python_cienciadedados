@@ -19,7 +19,7 @@ Unix: Source venv/bin/activate
 
 python -m pip install pandas
 
-4) Depois de criar, instalar, atualizar e configurar a venv, é necessário criar o arquivo requirements.txt
+4) Depois de criar, instalar, atualizar e configurar a venv, é necessário criar o arquivo requirements.txt (Só na primeira vez para guardar os requisitos)
 
 python -m pip freeze > requirements.txt
 
@@ -31,3 +31,4 @@ python -m pip freeze > requirements.txt
 6) Se for trocar de projeto  cuidar para desativar a venv
 
 deactivate
+
