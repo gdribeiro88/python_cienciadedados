@@ -27,9 +27,58 @@ else:
                     print(f"Erro na linha {i}: Um ou mais campos não são numéricos - {e}")
                     print("Linha problemática:", linha)
 
-    # Ordena a lista de objetos Glicemia pela quantidade de carboidratos
-    lista_glicemias.sort(key=lambda glicemia: glicemia.carb)
-
     print("Quantos dados foram capturados? " + str(len(lista_glicemias)))
     for item in lista_glicemias:
         print(item)
+
+    ## Realize a média de Glicemia, Kcal e Carb
+        #Média de Glicemia
+
+soma = 0
+for glicemia in lista_glicemias:
+    soma = soma + glicemia.valor_glicemia
+
+media = soma / len(lista_glicemias)
+print("A média de glicemia: ", media)
+
+        #Média de Kcal
+soma = 0
+for glicemia in lista_glicemias:
+    soma = soma + glicemia.kcal
+
+media = soma / len(lista_glicemias)
+print("A média de Kcal: ", media)      
+
+        #Média de Carb
+soma = 0
+for glicemia in lista_glicemias:
+    soma = soma + glicemia.carb
+
+media = soma / len(lista_glicemias)
+print("A média de glicemia: ", media)
+
+
+##Realize a mediana da Glicemia, Kcal e Carb
+        #Mediana de Glicemia
+# Ordena a lista de objetos Glicemia pela quantidade de carboidratos
+lista_glicemias.sort(key=lambda glicemia: glicemia.valor_glicemia)
+
+indice_meio = int(len(lista_glicemias)/2)
+print("A mediana de glicemia: ", lista_glicemias[indice_meio].valor_glicemia)
+
+        #Mediana de Kcal
+lista_glicemias.sort(key=lambda glicemia: glicemia.kcal)
+
+indice_meio = int(len(lista_glicemias)/2)
+print("A mediana de glicemia: ", lista_glicemias[indice_meio].kcal)
+
+        #Mediana de Carb
+lista_glicemias.sort(key=lambda glicemia: glicemia.carb)
+
+indice_meio = int(len(lista_glicemias)/2)
+print("A mediana de glicemia: ", lista_glicemias[indice_meio].carb)
+
+
+##Realize a Moda de Glicemia, Kcal e Carb
+        #Moda de Glicemia
+####
