@@ -1,8 +1,19 @@
 from oo1 import Glicemia
 
+import os
+
+# Imprime o diretório de trabalho atual
+print("Diretório de trabalho atual:", os.getcwd())
+
+nome_arquivo = "glicose_data_suja.csv"
+
+# Verificar se o arquivo existe
+import os
+if not os.path.exists(nome_arquivo):
+    print(f"Erro: O arquivo '{nome_arquivo}' não foi encontrado.")
+else:
+    lista_glicemias = []
 # abrir e capturar as linhas do arquivo dados_glicemia_oo.dat
-nome_arquivo = "C:\Users\Usuario\Desktop\PÓS UFN\python_cienciadedados\Trabalho\glicose_data_suja.csv"
-lista_glicemias = []
 with open(nome_arquivo,"r",encoding="utf8") as leitor:
     for linha in leitor:
         # splitar a linha e criar um objeto do tipo Glicemia para cada linha
@@ -32,9 +43,9 @@ f#or item in lista_glicemias:
 
 ##Média de Glicemia, Kcal, carb
 
-soma = 0
-for item in lista_glicemias:
-    soma = soma + int(item)
+#soma = 0
+#for item in lista_glicemias:
+#    soma = soma + int(item)
 
-media = soma / len(lista_glicemias)
-print("A média de glicemia: ", media)
+#media = soma / len(lista_glicemias)
+#print("A média de glicemia: ", media)
