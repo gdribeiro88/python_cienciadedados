@@ -1,7 +1,7 @@
 from oo1 import Glicemia
 
 # abrir e capturar as linhas do arquivo dados_glicemia_oo.dat
-nome_arquivo = "glicose_data_suja.csv"
+nome_arquivo = "C:\Users\Usuario\Desktop\PÓS UFN\python_cienciadedados\Trabalho\glicose_data_suja.csv"
 lista_glicemias = []
 with open(nome_arquivo,"r",encoding="utf8") as leitor:
     for linha in leitor:
@@ -23,9 +23,18 @@ for item in lista_glicemias:
     print(item)
 
 #dia normal de glicemia são valores entre 80 e 140
-qtd_dias_normais = 0
-for item in lista_glicemias:
-    if item.valor_glicemia >= 80 and item.valor_glicemia < 140:
-        qtd_dias_normais += 1
+#qtd_dias_normais = 0
+f#or item in lista_glicemias:
+  #  if item.valor_glicemia >= 80 and item.valor_glicemia < 140:
+   #     qtd_dias_normais += 1
 
-print("Total de dias em glicemia normal: " + str(qtd_dias_normais))
+#print("Total de dias em glicemia normal: " + str(qtd_dias_normais))
+
+##Média de Glicemia, Kcal, carb
+
+soma = 0
+for item in lista_glicemias:
+    soma = soma + int(item)
+
+media = soma / len(lista_glicemias)
+print("A média de glicemia: ", media)
