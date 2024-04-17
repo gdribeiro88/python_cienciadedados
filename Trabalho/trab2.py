@@ -81,4 +81,44 @@ print("A mediana de glicemia: ", lista_glicemias[indice_meio].carb)
 
 ##Realize a Moda de Glicemia, Kcal e Carb
         #Moda de Glicemia
-####
+# Calcular e imprimir a moda da glicemia
+freq = {}
+for item in lista_glicemias:
+        if item.valor_glicemia in freq:
+            freq[item.valor_glicemia] += 1
+        else:
+            freq[item.valor_glicemia] = 1
+
+    # Encontrar a(s) moda(s)
+max_freq = max(freq.values())
+modas = [val for val, count in freq.items() if count == max_freq]
+
+print("A moda da Glicemia é ou são: ", modas, "ocorrendo", max_freq, "vezes")
+
+# Calcular e imprimir a moda de Kcal
+freq = {}
+for item in lista_glicemias:
+        if item.kcal in freq:
+            freq[item.kcal] += 1
+        else:
+            freq[item.kcal] = 1
+
+    # Encontrar a(s) moda(s)
+max_freq = max(freq.values())
+modas = [val for val, count in freq.items() if count == max_freq]
+
+print("A moda da Kcal é ou são: ", modas, "ocorrendo", max_freq, "vezes")
+
+#Calcular e imprimir a moda do Carb
+freq = {}
+for item in lista_glicemias:
+        if item.carb in freq:
+            freq[item.carb] += 1
+        else:
+            freq[item.carb] = 1
+
+    # Encontrar a(s) moda(s)
+max_freq = max(freq.values())
+modas = [val for val, count in freq.items() if count == max_freq]
+
+print("A moda da Carb é ou são: ", modas, "ocorrendo", max_freq, "vezes")
