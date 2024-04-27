@@ -1,4 +1,47 @@
+from google.colab import drive
+drive.mount('/content/drive')
 import pandas as pd
+
+
+#carregar arquivo em dataframe
+arquivo = "/content/pandas/glicose_data_suja (1).csv"
+df = pd.read_csv(arquivo)
+
+print(df)
+
+# Função para verificar e remover inconsistências
+def verificar_e_remover_inconsistencias(df):
+    # Aqui você pode adicionar as regras de validação de acordo com sua necessidade
+    inconsistencias = []
+
+    # Verificar e remover registros com valores nulos
+    df_sem_nulos = df.dropna()
+    
+    # Verificar se houve registros removidos
+    if len(df_sem_nulos) < len(df):
+        inconsistencias.append(f"{len(df) - len(df_sem_nulos)} registros com valores nulos foram removidos.")
+    
+    # Adicione mais verificações conforme necessário...
+
+    return df_sem_nulos, inconsistencias
+
+
+# Verificar e remover inconsistências
+df_sem_inconsistencias, inconsistencias = verificar_e_remover_inconsistencias(df)
+
+# Exibir resultados
+if len(inconsistencias) > 0:
+    print("Foram encontradas as seguintes inconsistências:")
+    for inconsistencia in inconsistencias:
+        print("- ", inconsistencia)
+    print("Os registros com inconsistências foram removidos.")
+    # Aqui você pode salvar o DataFrame sem inconsistências em um novo arquivo CSV se desejar:
+    # df_sem_inconsistencias.to_csv('arquivo_sem_inconsistencias.csv', index=False)
+else:
+    print("Não foram encontradas inconsistências no arquivo CSV.")
+
+
+
 from statistics import mode, median
 
 class CalculadoraEstatistica:
@@ -20,15 +63,11 @@ class CalculadoraEstatistica:
 
         return estatisticas
 
-# Exemplo de uso:
-caminho_arquivo = 'arquivo.csv'  # Substitua pelo caminho do seu arquivo CSV
-df = pd.read_csv(caminho_arquivo)
-
 # Criar objeto da calculadora estatística
 calculadora = CalculadoraEstatistica(df)
 
 # Calcular estatísticas para as colunas especificadas
-colunas_para_calcular = ['Resultado', 'Kcal', 'Carb']
+colunas_para_calcular = ['Resultado', 'kcal', 'carb']
 resultado_estatisticas = calculadora.calcular_estatisticas(colunas_para_calcular)
 
 # Exibir resultados
